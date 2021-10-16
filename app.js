@@ -61,13 +61,7 @@ else{
     request.end();
 
 })
-// {
-//     "name": "$event_name",
-//     "contact": $footer_contact_info,
-//     "permission_reminder": "permission_reminder",
-//     "email_type_option": true,
-//     "campaign_defaults": $campaign_defaults
-//   }
+
   
 
 app.listen(3000,function(req,res){
