@@ -47,26 +47,35 @@ app.post("/", function(req,res){
 
 
 if(response===200){
-    res.send("successfully subscribed!")
+    res.sendFile(__dirname + "/success.html")
 }
 else{
-    res.send("There is error with sign in,please try again letter")
+    res.sendFile(__dirname + "/failure.html")
 }
 
         response.on("data",function(data){
             console.log(JSON.parse(data));
         })    
     })
-    request.write(jsonData);
+    //request.write(jsonData);
     request.end();
 
 })
+// {
+//     "name": "$event_name",
+//     "contact": $footer_contact_info,
+//     "permission_reminder": "permission_reminder",
+//     "email_type_option": true,
+//     "campaign_defaults": $campaign_defaults
+//   }
 
+
+app.post("/failure" ,function(req,res){
+ 
+    res.redirect("/")
+})
   
 
-app.listen(3000,function(req,res){
+app.listen(process.env.PORT || 3000 ,function(req,res){
     console.log("port open at 3000");
 })
-
-
-//0d5c2ecdc3
